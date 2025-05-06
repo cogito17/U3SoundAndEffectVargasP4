@@ -49,6 +49,18 @@ public class PlayerController : MonoBehaviour
             playerAnim.Play("Running_Jump", 3,0f);
             playerAudio.PlayOneShot(jumpSound, 1.0f);
         }
+
+        if (Input.GetKey(KeyCode.LeftShift))
+        {
+            doubleJumpUsed = true;
+            playerAnim.SetFloat("Speed_Multiplier", 2.0f);
+        }
+
+        else if (doubleSpeed)
+        {
+            doubleSpeed = false;
+            playerAnim.SetFloat("Speed_Multipler", 1.0f);
+        }
     }
 
     private void OnColliderEnter(Collision collision)
